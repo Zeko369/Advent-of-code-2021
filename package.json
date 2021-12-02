@@ -6,7 +6,14 @@
   "author": "Fran Zekan <zekan.fran369@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "pull": "node ./pull.js"
+  },
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0"
   }
 }
