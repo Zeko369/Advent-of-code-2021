@@ -36,19 +36,31 @@ if (!process.env.SESSION_COOKIE) {
 
   while (true) {
     const time = new Date();
-    if (time.getHours() === 6) {
-      axios
+    if (time.getHours() === 7) {
+      const res = axios
         .get(`https://adventofcode.com/2021/day/${day}/input`, {
           headers: {
             Cookie: `session=${process.env.SESSION_COOKIE}`,
           },
         })
         .then((res) => writeFile(join(baseDir, "input.txt"), res.data.trim(), "utf8"))
-        .then(() => console.log("done"));
+        .catch((err) => {
+          if (err.response.status === 404) {
+            console.log("Not yet open");
+            return;
+          }
 
-      break;
+          throw err;
+        })
+        .then(() => true);
+
+      if (res === true) {
+        console.log("Done");
+        break;
+      }
     }
 
+    console.log("Wait a sec...");
     await new Promise((resolve) => setTimeout(resolve, 1000));
   }
 })();
