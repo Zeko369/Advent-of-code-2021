@@ -1,10 +1,10 @@
 import { loadData } from "../shared/index.js";
 
 (async () => {
-  for (const data of await loadData(import.meta.url, (row) => {
+  for (const [name, data] of await loadData(import.meta.url, (row) => {
     return row;
   })) {
-    console.log("-------------");
+    console.log(`------------- ${name} -------------`);
 
     let a = data[0].split("").map((a) => 0);
 

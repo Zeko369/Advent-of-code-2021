@@ -12,7 +12,7 @@ export const loadData = async (path, mapper = (a) => a) => {
     files.map(async (file) => {
       const filePath = join(dirname(fileURLToPath(path)), file);
       const data = await readFile(filePath, "utf8");
-      return data.split("\n").map(mapper);
+      return [file, data.split("\n").map(mapper)];
     })
   );
 };
