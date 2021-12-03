@@ -36,8 +36,8 @@ if (!process.env.SESSION_COOKIE) {
 
   while (true) {
     const time = new Date();
-    if (time.getHours() === 7) {
-      const res = axios
+    if (time.getHours() === 6) {
+      const res = await axios
         .get(`https://adventofcode.com/2021/day/${day}/input`, {
           headers: {
             Cookie: `session=${process.env.SESSION_COOKIE}`,
