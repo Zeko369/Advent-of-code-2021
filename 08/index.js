@@ -113,10 +113,7 @@ const fullDict = {
                         }
                       }
 
-                      if (
-                        set.split("").sort().join("") !==
-                        foo.split("").sort().join("")
-                      ) {
+                      if (set.split("").sort().join("") !== foo.split("").sort().join("")) {
                         all = false;
                         break;
                       }
