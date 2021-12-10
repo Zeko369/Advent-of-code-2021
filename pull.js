@@ -18,7 +18,10 @@ if (!process.env.SESSION_COOKIE) {
   }
 
   const day = date.getDate();
-  const baseDir = join(dirname(fileURLToPath(import.meta.url)), day < 10 ? `0${day}` : day);
+  const baseDir = join(
+    dirname(fileURLToPath(import.meta.url)),
+    day < 10 ? `0${day}` : day.toString()
+  );
   try {
     await stat(baseDir);
   } catch (err) {
