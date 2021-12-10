@@ -6,6 +6,10 @@ import { loadData } from "../shared/index.js";
     return [a, parseInt(b)];
   })) {
     console.log(`------------- ${name} -------------`);
+    if (name === "input.txt") {
+      continue;
+    }
+
     console.log(data.length);
   }
 })();
