@@ -1,10 +1,9 @@
 import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 import { writeFile, stat, mkdir, copyFile } from "fs/promises";
 
 import dotenv from "dotenv";
-
 import axios from "axios";
-import { fileURLToPath } from "url";
 
 dotenv.config();
 if (!process.env.SESSION_COOKIE) {
@@ -39,7 +38,7 @@ if (!process.env.SESSION_COOKIE) {
 
   while (true) {
     const time = new Date();
-    if (time.getHours() === 6) {
+    if (time.getHours() >= 6) {
       const res = await axios
         .get(`https://adventofcode.com/2021/day/${day}/input`, {
           headers: {
